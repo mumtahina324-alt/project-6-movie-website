@@ -3,9 +3,9 @@ import { MovieContext } from "../../Context";
 import CartItem from "./CartItem";
 
 export default function Cart({ onClose }) {
-  const { cartData } = useContext(MovieContext);
+  const { state, dispatch } = useContext(MovieContext);
   const handleRemoveFromCart = (id) => {
-    console.log("Remove movie:", id);
+    dispatch({ type: "REMOVE_FROM_CART", payload: id });
   };
   return (
     <div className="fixed top-0 left-0 w-screen h-screen z-50 bg-black/60 backdrop-blur-sm">
@@ -15,8 +15,8 @@ export default function Cart({ onClose }) {
           <h2 className="text-2xl lg:text-4xl font-bold Mb-20">Your Cart</h2>
           <div className="space-y-8 lg:space-y-12 max-h-112.5 overflow-auto mb-10 lg:mb-14">
             {/* Cart items */}
-            {cartData.length > 0 ? (
-              cartData.map((movie) => (
+            {state.cartData.length > 0 ? (
+              state.cartData.map((movie) => (
                 <CartItem
                   key={movie.id}
                   movie={movie}
@@ -32,7 +32,7 @@ export default function Cart({ onClose }) {
           {/* Cart footer */}
           {/* Cart footer */}
           <div className="flex items-center justify-end gap-3">
-            <button className="bg-primary hover:bg-primary/90 transition rounded-lg py-2.5 px-6 flex items-center justify-center gap-2 text-[#171923] font-semibold text-sm shadow-sm">
+            <button className="bg-primary hover:bg-primary/90 transition rounded-lg py-2.5 px-6 flex items-center justify-center gap-2 text-white font-semibold text-sm shadow-sm">
               Checkout
             </button>
 

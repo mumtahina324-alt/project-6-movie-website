@@ -6,7 +6,7 @@ import Cart from "../cart/Cart";
 
 export default function Navbar() {
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const { cartData } = useContext(MovieContext);
+  const { state } = useContext(MovieContext);
   const { darkMode, setDarkMode } = useContext(ThemeContext);
 
   const toggleTheme = () => {
@@ -74,7 +74,7 @@ export default function Navbar() {
             >
               <ShoppingCart size={20} className="text-primary fill-primary" />
               <span className="absolute -top-1 -right-1 bg-black text-white text-xs rounded-full px-1.5 min-w-4.5 h-4.5 flex items-center justify-center">
-                {cartData.length}
+                {state.cartData.length}
               </span>
             </a>
           </li>

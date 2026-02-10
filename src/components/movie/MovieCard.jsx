@@ -1,6 +1,5 @@
 import { ShoppingCart } from "lucide-react";
 import { useContext, useState } from "react";
-import { toast } from "react-hot-toast";
 import { MovieContext } from "../../Context";
 import { getMovieUrl } from "../../Utils/Movie-Utils";
 import MovieDetailsModal from "./MovieDetailsModal";
@@ -10,10 +9,10 @@ export default function MovieCard({ movie }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState(null);
 
-  const { cartData, setCartData } = useContext(MovieContext);
+  const { dispatch } = useContext(MovieContext);
 
   // Open modal
-  const handleMovieSelect = () => {
+  const handleMovieSelect = (movie) => {
     setSelectedMovie(movie);
     setIsModalOpen(true);
   };
@@ -27,16 +26,12 @@ export default function MovieCard({ movie }) {
   // Add to cart
   const addToCart = (e, movie) => {
     e.stopPropagation();
-
-    const isMovieExists = cartData.find((item) => item.id === movie.id);
-
-    if (isMovieExists) {
-      toast.error("Movie already exists in cart");
-      return;
-    }
-
-    setCartData([...cartData, movie]);
-    toast.success("Movie added to cart");
+    dispatch({
+      type: "ADD_TO_CART",
+      payload: {
+        ...movie,
+      },
+    });
   };
 
   return (
