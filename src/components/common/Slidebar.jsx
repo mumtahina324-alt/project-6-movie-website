@@ -8,9 +8,9 @@ import {
 
 import Userprofile from "../../assets/userprofile.jpg";
 
-export default function Sidebar() {
+export default function Slidebar() {
   return (
-    <aside className="w-full max-w-xs border-r border-gray-500">
+    <aside className="flex flex-col h-full">
       <ul className="space-y-3">
         {/* Active */}
         <li>
@@ -111,7 +111,7 @@ export default function Sidebar() {
       </ul>
 
       {/* User Profile Section */}
-      <div className="p-2 mt-25">
+      <div className="mt-auto p-2">
         <a
           href="#"
           className="
