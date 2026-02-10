@@ -1,12 +1,22 @@
-import { Bell, Moon, Search, ShoppingCart } from "lucide-react";
+import { Bell, Moon, Search, ShoppingCart, Sun } from "lucide-react";
 import { useContext, useState } from "react";
 import Logo from "../../assets/logo.png";
-import { MovieContext } from "../../Context";
+import { MovieContext, ThemeContext } from "../../Context";
 import Cart from "../cart/Cart";
 
 export default function Navbar() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const { cartData } = useContext(MovieContext);
+  const { darkMode, setDarkMode } = useContext(ThemeContext);
+
+  const toggleTheme = () => {
+    const newMode = !darkMode;
+    setDarkMode(newMode);
+    document.documentElement.setAttribute(
+      "data-theme",
+      newMode ? "dark" : "light",
+    );
+  };
 
   return (
     <>
@@ -46,10 +56,15 @@ export default function Navbar() {
 
           <li>
             <a
+              onClick={toggleTheme}
               href="#"
               className="bg-primary/20 dark:bg-primary/7 rounded-lg backdrop-blur-[2px] p-2 inline-block"
             >
-              <Moon size={20} className="text-primary fill-primary" />
+              {darkMode ? (
+                <Moon size={20} className="text-primary fill-primary" />
+              ) : (
+                <Sun size={20} className="text-primary fill-primary" />
+              )}
             </a>
           </li>
           <li>

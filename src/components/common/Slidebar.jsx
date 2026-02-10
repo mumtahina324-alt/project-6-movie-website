@@ -19,7 +19,7 @@ export default function Slidebar() {
             className="
               group flex items-center gap-3
               px-5 py-4 rounded-xl
-              text-gray-600 font-medium
+              text-gray-600 dark:text-white font-medium
               transition-all duration-200
               hover:bg-primary hover:text-white
             "
@@ -36,7 +36,7 @@ export default function Slidebar() {
             className="
               group flex items-center gap-3
               px-5 py-4 rounded-xl
-              text-gray-600 font-medium
+              text-gray-600 dark:text-white font-medium
               transition-all duration-200
               hover:bg-primary hover:text-white
             "
@@ -56,7 +56,7 @@ export default function Slidebar() {
             className="
                  group flex items-center gap-3
               px-5 py-4 rounded-xl
-              text-gray-600 font-medium
+              text-gray-600 dark:text-white font-medium
               transition-all duration-200
               hover:bg-primary hover:text-white
             "
@@ -76,7 +76,7 @@ export default function Slidebar() {
             className="
               group flex items-center gap-3
               px-5 py-4 rounded-xl
-              text-gray-600 font-medium
+              text-gray-600 dark:text-white font-medium
               transition-all duration-200
               hover:bg-primary hover:text-white
             "
@@ -96,7 +96,7 @@ export default function Slidebar() {
             className="
               group flex items-center gap-3
               px-5 py-4 rounded-xl
-              text-gray-600 font-medium
+              text-gray-600 dark:text-white font-medium
               transition-all duration-200
               hover:bg-primary hover:text-white
             "
